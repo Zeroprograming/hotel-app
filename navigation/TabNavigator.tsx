@@ -11,7 +11,7 @@ import Home from "../screens/HomeScreen";
 import CalenderScreen from "../screens/CalenderScreen";
 import ExploreScreen from "../screens/Explore";
 import { useColorScheme } from "react-native";
-import UserStackScreen from "./Stack/StackNavigator";
+import UserStackScreen from "./GlobalStackNavigator";
 
 // Components
 
@@ -34,6 +34,7 @@ export default function MyTabs() {
           name="Home"
           options={{
             title: "Home",
+            // unmountOnBlur: true,
             tabBarIcon: ({ focused, color, size }) => {
               return (
                 <Ionicons
@@ -53,6 +54,7 @@ export default function MyTabs() {
           name="Calender"
           options={{
             title: "Calendario",
+            // unmountOnBlur: true,
             tabBarIcon: ({ focused, color, size }) => {
               return (
                 <Ionicons
@@ -72,6 +74,7 @@ export default function MyTabs() {
           name="Explore"
           options={{
             title: "Explora",
+            // unmountOnBlur: true,
             tabBarIcon: ({ focused, color, size }) => {
               return (
                 <Ionicons
@@ -101,6 +104,7 @@ export default function MyTabs() {
               );
             },
             headerShown: false,
+            unmountOnBlur: true
             // notificaciones
             // tabBarBadge: 0,
           }}
