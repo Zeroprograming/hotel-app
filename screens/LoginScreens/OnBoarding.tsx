@@ -1,7 +1,6 @@
 import { LinearGradient } from "expo-linear-gradient";
 import { StatusBar } from "expo-status-bar";
-import { Pressable, Text, View } from "react-native";
-import { TouchableOpacity } from "react-native-gesture-handler";
+import { Pressable, Text, View, TouchableOpacity } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 
 import Navigation from "../../navigation/TabNavigator";

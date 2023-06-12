@@ -6,6 +6,8 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { Ionicons } from "@expo/vector-icons";
 import ExploreScreen from "./screens/NavigationScreens/Explore";
 import Home from "./screens/NavigationScreens/HomeScreen";
+import CalenderScreen from "./screens/NavigationScreens/CalenderScreen";
+import UserStackScreen from "./navigation/GlobalStackNavigator";
 
 const StackNavigation = createNativeStackNavigator();
 const TabNavigation = createBottomTabNavigator();
@@ -14,27 +16,92 @@ function HomeScreen() {
   return (
     <TabNavigation.Navigator
       initialRouteName="Home"
-      screenOptions={{ headerShown: false }}
+      screenOptions={{
+        tabBarActiveTintColor: "#684DEC",
+        headerShown: false,
+      }}
     >
+      {/* Home Screen */}
+
       <TabNavigation.Screen
         name="Home"
-        component={Home}
         options={{
-          tabBarLabel: "Home",
-          tabBarIcon: ({ color, size }) => (
-            <Ionicons name="home" color={color} size={size} />
-          ),
+          title: "Home",
+          // unmountOnBlur: true,
+          tabBarIcon: ({ focused, color, size }) => {
+            return (
+              <Ionicons
+                name={focused ? "home" : "home-outline"}
+                size={size}
+                color={color}
+              />
+            );
+          },
         }}
+        component={Home}
       />
+
+      {/* Calendario */}
+
+      <TabNavigation.Screen
+        name="Calender"
+        options={{
+          title: "Calendario",
+          // unmountOnBlur: true,
+          tabBarIcon: ({ focused, color, size }) => {
+            return (
+              <Ionicons
+                name={focused ? "calendar" : "calendar-outline"}
+                size={size}
+                color={color}
+              />
+            );
+          },
+        }}
+        component={CalenderScreen}
+      />
+
+      {/* Explore */}
+
       <TabNavigation.Screen
         name="Explore"
-        component={ExploreScreen}
         options={{
-          tabBarLabel: "Explore",
-          tabBarIcon: ({ color, size }) => (
-            <Ionicons name="search" color={color} size={size} />
-          ),
+          title: "Explora",
+          // unmountOnBlur: true,
+          tabBarIcon: ({ focused, color, size }) => {
+            return (
+              <Ionicons
+                name={focused ? "map" : "map-outline"}
+                size={size}
+                color={color}
+              />
+            );
+          },
         }}
+        component={ExploreScreen}
+      />
+
+      {/* Usuario */}
+
+      <TabNavigation.Screen
+        name="User"
+        options={{
+          title: "Usuario",
+          tabBarIcon: ({ focused, color, size }) => {
+            return (
+              <Ionicons
+                name={focused ? "person-circle" : "person-circle-outline"}
+                size={size}
+                color={color}
+              />
+            );
+          },
+          headerShown: false,
+          unmountOnBlur: true,
+          // notificaciones
+          // tabBarBadge: 0,
+        }}
+        component={UserStackScreen}
       />
     </TabNavigation.Navigator>
   );
