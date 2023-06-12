@@ -4,7 +4,7 @@ import {
   View,
   Image,
 } from "react-native";
-import Buttons from "../components/Buttons";
+import Buttons from "../../components/Buttons";
 
 export default function UserScreen() {
   return (

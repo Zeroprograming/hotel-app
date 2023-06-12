@@ -7,9 +7,9 @@ import Colors from "../constants/Colors";
 
 // Screens
 
-import Home from "../screens/HomeScreen";
-import CalenderScreen from "../screens/CalenderScreen";
-import ExploreScreen from "../screens/Explore";
+import Home from "../screens/NavigationScreens/HomeScreen";
+import CalenderScreen from "../screens/NavigationScreens/CalenderScreen";
+import ExploreScreen from "../screens/NavigationScreens/Explore";
 import { useColorScheme } from "react-native";
 import UserStackScreen from "./GlobalStackNavigator";
 

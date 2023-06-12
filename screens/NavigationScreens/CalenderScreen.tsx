@@ -6,7 +6,7 @@ import React, {Component} from 'react';
 import { StatusBar } from 'expo-status-bar';
 import {Alert, StyleSheet, Text, View, TouchableOpacity, SafeAreaView} from 'react-native';
 import {Agenda, DateData, AgendaEntry, AgendaSchedule} from 'react-native-calendars';
-import testIDs from '../testIDs';
+import testIDs from '../../testIDs';
 
 
 interface State {

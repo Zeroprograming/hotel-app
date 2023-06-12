@@ -2,9 +2,9 @@ import * as React from "react";
 import { Text } from "react-native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
-import UserScreen from "../screens/UserScreen";
+import UserScreen from "../screens/NavigationScreens/UserScreen";
 import PersonalDeatilsScreen from "../screens/UserScreens/PersonalDetailsScreen";
-import CalenderScreen from "../screens/CalenderScreen";
+import CalenderScreen from "../screens/NavigationScreens/CalenderScreen";
 import CurrentHotelPlanScreen from "../screens/UserScreens/CurrentHotelPlanScreen";
 import HostingPlansScreen from "../screens/UserScreens/HostingPlans";
 import { fas } from "@fortawesome/free-solid-svg-icons";
@@ -18,11 +18,11 @@ const UserStackScreen = function () {
       <StackNavigation.Screen
         name="UserScreen"
         component={UserScreen}
-        options={{ 
-          headerTitle: 'Usuario', 
-          headerTitleAlign: 'center',
+        options={{
+          headerTitle: "Usuario",
+          headerTitleAlign: "center",
           headerBackTitleVisible: false,
-          headerShown: false
+          headerShown: false,
         }}
       />
 
@@ -30,36 +30,35 @@ const UserStackScreen = function () {
       <StackNavigation.Screen
         name="PersonalDetails"
         component={PersonalDeatilsScreen}
-        options={{ 
-          headerTitle: 'Planes de alojamiento', 
-          headerTitleAlign: 'center',
+        options={{
+          headerTitle: "Planes de alojamiento",
+          headerTitleAlign: "center",
           headerBackTitleVisible: false,
-          headerShown: true 
+          headerShown: true,
         }}
       />
       <StackNavigation.Screen
         name="PlanHotel"
         component={CurrentHotelPlanScreen}
-        options={{ 
-          headerTitle: 'Planes de alojamiento', 
-          headerTitleAlign: 'center',
+        options={{
+          headerTitle: "Planes de alojamiento",
+          headerTitleAlign: "center",
           headerBackTitleVisible: false,
-          headerShown: true 
+          headerShown: true,
         }}
       />
-      <StackNavigation.Screen 
+      <StackNavigation.Screen
         name="HostingPlans"
         component={HostingPlansScreen}
-        options={{ 
-          headerTitle: 'Planes de alojamiento', 
-          headerTitleAlign: 'center',
+        options={{
+          headerTitle: "Planes de alojamiento",
+          headerTitleAlign: "center",
           headerBackTitleVisible: false,
-          headerShown: true 
+          headerShown: true,
         }}
       />
 
       <StackNavigation.Screen name="Calender" component={CalenderScreen} />
-
     </StackNavigation.Navigator>
   );
 };
