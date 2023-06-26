@@ -8,6 +8,7 @@ import ExploreScreen from "./screens/NavigationScreens/Explore";
 import Home from "./screens/NavigationScreens/HomeScreen";
 import CalenderScreen from "./screens/NavigationScreens/CalenderScreen";
 import UserStackScreen from "./navigation/GlobalStackNavigator";
+import LogInScreen from "./screens/LoginScreens/LogIn";
 
 const StackNavigation = createNativeStackNavigator();
 const TabNavigation = createBottomTabNavigator();
@@ -116,6 +117,7 @@ function Auth(props: any) {
           component={OnBoardingScreen}
         />
         <StackNavigation.Screen name="HomeScreen" component={HomeScreen} />
+        <StackNavigation.Screen name="LogIn" component={LogInScreen} />
       </StackNavigation.Navigator>
     </NavigationContainer>
   );
