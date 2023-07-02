@@ -112,10 +112,7 @@ function Auth(props: any) {
   return (
     <NavigationContainer>
       <StackNavigation.Navigator screenOptions={{ headerShown: false }}>
-        <StackNavigation.Screen
-          name="OnBoarding"
-          component={OnBoardingScreen}
-        />
+        <StackNavigation.Screen name="OnBoarding" component={OnBoardingScreen} />
         <StackNavigation.Screen name="HomeScreen" component={HomeScreen} />
         <StackNavigation.Screen name="LogIn" component={LogInScreen} />
       </StackNavigation.Navigator>

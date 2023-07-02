@@ -1,14 +1,41 @@
 import { LinearGradient } from "expo-linear-gradient";
 import { StatusBar } from "expo-status-bar";
-import { Pressable, Text, View, TouchableOpacity, Image } from "react-native";
+import {
+  Pressable,
+  Text,
+  View,
+  TouchableOpacity,
+  Image,
+  Button,
+  BackHandler,
+} from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 import { TextInput } from "react-native-gesture-handler";
 import { A } from "@expo/html-elements";
 import { SafeAreaView } from "react-native-safe-area-context";
-import { useState } from "react";
+import { useLayoutEffect, useState } from "react";
 
 // @ts-ignore
 function LogInScreen({ navigation }) {
+  useLayoutEffect(() => {
+    // Deshabilitar el botón de retroceso en el header de la pantalla
+    navigation.setOptions({
+      headerLeft: null,
+    });
+
+    // Deshabilitar la navegación hacia atrás en Android
+    const backAction = () => {
+      return true;
+    };
+
+    const backButtonHandler = BackHandler.addEventListener(
+      "hardwareBackPress",
+      backAction
+    );
+
+    return () => backButtonHandler.remove();
+  }, []);
+
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [isUsernameFocused, setIsUsernameFocused] = useState(false);
@@ -39,6 +66,9 @@ function LogInScreen({ navigation }) {
   return (
     <SafeAreaView className="p-2 mx-2">
       <StatusBar style="auto" />
+      <TouchableOpacity onPress={() => navigation.navigate("OnBoarding")}>
+        <Ionicons name="arrow-back" size={24} color="black" />
+      </TouchableOpacity>
       <Text className="font-bold text-2xl mt-4 mb-1">Welcome Back!</Text>
       <Text className="text-gray-400 mb-6">
         Log in your hotel account to explore your dream city!
@@ -134,7 +164,10 @@ function LogInScreen({ navigation }) {
             className="items-center bg-white p-2 rounded-3xl w-[90%] h-12 mt-5 flex-row"
           >
             <View className="mx-1">
-              <Image source={require("../../assets/google.png")} className="w-7 h-7"/>
+              <Image
+                source={require("../../assets/google.png")}
+                className="w-7 h-7"
+              />
             </View>
             <Text className="ml-[18%] text-black text-base font-light text-center">
               Sign In with Google
